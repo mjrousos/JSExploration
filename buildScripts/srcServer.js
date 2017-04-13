@@ -1,10 +1,10 @@
-var express = require('express');
-var path = require('path');
-var open = require('open');
-var morgan = require('morgan');
+import express from 'express';
+import path from 'path';
+import open from 'open';
+import morgan from 'morgan';
 
-var port = 3000;
-var app = express();
+const port = 3000;
+const app = express();
 
 app.use(morgan('dev'));
 
