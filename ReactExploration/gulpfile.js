@@ -24,6 +24,7 @@ var config = {
 };
 config.paths.html = config.paths.src + '/**/*.html';
 config.paths.js  = config.paths.src + '/**/*.js';
+config.paths.images = config.paths.src + '/images/*';
 
 // Start a local dev server
 gulp.task('connect', function() {
@@ -64,22 +65,28 @@ gulp.task('css', function() {
     .pipe(gulp.dest(config.paths.dist + '/css'));
 });
 
+gulp.task('images', function() {
+  gulp.src(config.paths.images)
+    .pipe(gulp.dest(config.paths.dist + '/images'))
+    .pipe(connect.reload());
+})
+
 gulp.task('lint', function() {
   return gulp.src(config.paths.js)
     .pipe(lint({
       configFile: 'eslint.config.json'
     }))
     .pipe(lint.format())
-    .pipe(lint.failAfterError());
 });
 
 // Watch files and rerun if any files in paths.html change
 gulp.task('watch', function() {
   gulp.watch(config.paths.html, ['htmlCopy']);
   gulp.watch(config.paths.js, ['jsMainBundle', 'lint']);
-  gulp.watch(config.paths.css, ['css']);
+  gulp.watch(config.paths.css, ['css'],
+  gulp.watch(config.paths.images, ['images']));
 
 });
 
 // Default task if no tasks are specified
-gulp.task('default', ['htmlCopy', 'jsMainBundle', 'css', 'lint', 'watch', 'open']);
+gulp.task('default', ['htmlCopy', 'jsMainBundle', 'css', 'images', 'lint', 'watch', 'open']);
