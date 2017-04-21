@@ -1,6 +1,7 @@
 "use strict"
 
 var React = require('React');
+var PropTypes = require('prop-types');
 
 class AuthorList extends React.Component {
   constructor() {
@@ -34,5 +35,9 @@ class AuthorList extends React.Component {
     );
   }
 }
+
+AuthorList.propTypes = {
+  authors: PropTypes.array.isRequired
+};
 
 module.exports = AuthorList;

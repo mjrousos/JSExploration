@@ -4,7 +4,7 @@ var React = require('React');
 var AuthorApi = require('../../api/authorApi');
 var AuthorList = require('./authorList');
 
-class Authors extends React.Component {
+class AuthorPage extends React.Component {
   constructor() {
     super();
 
@@ -34,4 +34,4 @@ class Authors extends React.Component {
   }
 }
 
-module.exports = Authors;
+module.exports = AuthorPage;
