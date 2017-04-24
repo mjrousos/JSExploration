@@ -1,43 +1,16 @@
-$ = jQuery = require('jquery');
+"use strict";
+
 var React = require('react');
 var ReactDom = require('react-dom');
-var Home = require('./components/homePage');
-var Authors = require('./components/authors/authorPage');
-var About = require('./components/about/aboutPage');
-var Header = require('./components/common/header');
+var Router = require('react-router').Router;
+//var History = require('react-router').hashHistory;
+var History = require('react-router').browserHistory;
+var routes = require('./routes');
 
-class App extends React.Component {
-  constructor() {
-    super();
-  }
+ReactDom.render(<Router history={History}>{routes}</Router>, document.getElementById('app'));
 
-  render() {
-    var Child;
-    switch(this.props.route) {
-      case 'about':
-        Child = About;
-        break;
-      case 'authors':
-        Child = Authors;
-        break;
-      default:
-        Child = Home;
-        break;
-    }
+// Old, obsolete
+// Router.run(routes, function(RouteHandler) {
+//   ReactDom.render(<RouteHandler />, document.getElementById('app'));
+// });
 
-    return (
-      <div>
-        <Header/>
-        <Child />
-      </div>
-    );
-  }
-}
-
-function render() {
-  var route = window.location.hash.substr(1);
-  ReactDom.render(<App route={route} />, document.getElementById('app'));
-}
-
-window.addEventListener('hashchange', render);
-render();

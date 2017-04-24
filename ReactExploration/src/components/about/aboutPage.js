@@ -1,6 +1,6 @@
 var React = require('react');
 
-class About extends React.Component {
+class AboutPage extends React.Component {
   constructor() {
     super();
   }
@@ -25,4 +25,4 @@ class About extends React.Component {
   }
 }
 
-module.exports = About;
+module.exports = AboutPage;
