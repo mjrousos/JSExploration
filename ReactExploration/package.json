@@ -27,6 +27,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-motion": "^0.4.8",
-    "react-router": "^3.0.5"
+    "react-router": "^3.0.5",
+    "toastr": "^2.1.2"
   }
 }

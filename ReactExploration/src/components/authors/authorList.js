@@ -1,18 +1,19 @@
 "use strict"
 
 var React = require('React');
+var Link = require('react-router').Link;
 var PropTypes = require('prop-types');
 
 class AuthorList extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
     var createAuthorRow = function (author) {
       return (
         <tr key={author.id}>
-          <td><a href={"/#authors/" + author.id}>{author.id}</a></td>
+          <td><Link to={"/author/" + author.id}>{author.id}</Link></td>
           <td>{author.firstName} {author.lastName}</td>
         </tr>
       );

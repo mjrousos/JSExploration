@@ -4,8 +4,8 @@ var React = require('react');
 var Link = require('react-router').Link;
 
 class NotFoundPage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {

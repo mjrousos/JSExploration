@@ -1,8 +1,8 @@
 var React = require('react');
 
 class AboutPage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {

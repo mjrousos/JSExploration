@@ -5,8 +5,8 @@ var Router = require('react-router');
 var Link = Router.Link;
 
 class Header extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {

@@ -2,8 +2,8 @@ var React = require('react');
 var Link = require('react-router').Link;
 
 class Home extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {

@@ -3,10 +3,11 @@
 var React = require('React');
 var AuthorApi = require('../../api/authorApi');
 var AuthorList = require('./authorList');
+var Link = require('react-router').Link;
 
 class AuthorPage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = { authors: [] };
   }
@@ -28,7 +29,9 @@ class AuthorPage extends React.Component {
     return (
       <div>
         <h1>Authors</h1>
+        <Link to="author" className="btn btn-default">Add Author</Link>
         <AuthorList authors={this.state.authors} />
+
       </div>
     );
   }

@@ -2,12 +2,11 @@
 
 var React = require('react');
 var Header = require('./common/header');
-var RouteHandler = require('react-router').RouteHandler;
 $ = jQuery = require('jquery');
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
