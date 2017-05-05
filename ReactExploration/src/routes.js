@@ -15,7 +15,7 @@ function confirmAboutTransition(nextState, replace, cb) {
   }
 }
 
-function leaveManageAuthorPage(nextState, replace, cb) {
+function leaveManageAuthorPage(/*nextState, replace, cb*/) {
   // if (!replace.state.dirty || confirm('Leave without saving?')) {
   //   cb();
   // }

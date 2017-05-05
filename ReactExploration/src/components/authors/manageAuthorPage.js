@@ -4,7 +4,7 @@ var React = require('react');
 var History = require('react-router').browserHistory;
 var AuthorForm = require('./authorForm');
 var AuthorApi = require('./../../api/authorApi');
-var Toastr = require('Toastr');
+var Toastr = require('toastr');
 
 class ManageAuthorPage extends React.Component {
   constructor(props) {

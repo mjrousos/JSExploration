@@ -1,6 +1,6 @@
 "use strict"
 
-var React = require('React');
+var React = require('react');
 var Link = require('react-router').Link;
 var PropTypes = require('prop-types');
 
