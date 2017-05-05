@@ -1,7 +1,7 @@
 "use strict"
 
-var React = require('React');
-var AuthorApi = require('../../api/authorApi');
+var React = require('react');
+var AuthorStore = require('../../stores/authorStore');
 var AuthorList = require('./authorList');
 var Link = require('react-router').Link;
 
@@ -9,7 +9,8 @@ class AuthorPage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { authors: [] };
+    this.state = { authors: AuthorStore.getAllAuthors() };
+    this._onChange = this._onChange.bind(this);
   }
 
   // Not used in ES6 - instead, just set this.state in the ctor
@@ -20,9 +21,17 @@ class AuthorPage extends React.Component {
   //   };
   // }
 
-  // Populate state prior to loading the component
-  componentDidMount() {
-    this.setState({ authors: AuthorApi.getAllAuthors() });
+  componentWillMount() {
+    AuthorStore.addChangeListener(this._onChange);
+  }
+
+  componentWillUnmount() {
+    AuthorStore.removeChangeListener(this._onChange);
+  }
+
+  // Runs when the author store changes
+  _onChange() {
+    this.setState({ authors: AuthorStore.getAllAuthors()});
   }
 
   render() {

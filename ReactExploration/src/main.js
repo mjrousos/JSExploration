@@ -6,6 +6,9 @@ var Router = require('react-router').Router;
 //var History = require('react-router').hashHistory;
 var History = require('react-router').browserHistory;
 var routes = require('./routes');
+var InitializeActions = require('./actions/initializeActions');
+
+InitializeActions.initApp();
 
 ReactDom.render(<Router history={History}>{routes}</Router>, document.getElementById('app'));
 
